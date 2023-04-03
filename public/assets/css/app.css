@@ -62,3 +62,7 @@ main > .container {
     color: white;
 }
 
+#customers input{
+    width: 120px;
+}
+

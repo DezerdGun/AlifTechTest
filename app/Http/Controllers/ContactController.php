@@ -35,6 +35,7 @@ class ContactController extends Controller
             'email' => 'required|string|max:255',
             'number' => 'required|integer|min:3',
             'address' => 'required|string|max:255',
+            'date_of_birth' => 'nullable|string|max:255',
             'password' => 'required|string|max:255',
         ]);
         $this->contactRepository->storeCategory($data);

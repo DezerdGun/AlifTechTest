@@ -17,6 +17,7 @@
         <th>email</th>
         <th>Number</th>
         <th>Address</th>
+        <th>Date_of_birth</th>
         <th>Created_at</th>
         <th>Updated_at</th>
         <th>Edit</th>
@@ -29,6 +30,7 @@
         <td> {{$category->email}}</td>
         <td> {{$category->number}}</td>
         <td> {{$category->address}}</td>
+        <td> {{$category->date_of_birth}}</td>
         <td> {{$category->created_at}}</td>
         <td> {{$category->updated_at}}</td>
         <td> <a href="{{ route('contact.edit',$category->id) }}" class="btn btn-primary">Edit</a></td>
