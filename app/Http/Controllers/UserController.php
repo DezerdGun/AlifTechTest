@@ -9,6 +9,7 @@ use App\Enums\UserStatusEnum;
 use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -79,13 +80,12 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $username = User::query()
-            ->where('username', 'LIKE', "%{$search}%")
+
+        $posts = Contact::query()
+            ->join('users', 'contacts.user_id', '=', 'users.id')
+            ->where('users.username', 'LIKE', "%{$search}%")
+            ->orwhere('contacts.email', 'LIKE', "%{$search}%")
             ->get();
-        $email = Contact::query()
-            ->where('email', 'LIKE', "%{$search}%")
-            ->get();
-        $posts = $username->merge($email);
         return view('search.search', compact('posts'));
     }
 

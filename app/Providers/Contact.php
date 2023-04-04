@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +19,9 @@ class Contact extends Model
         'created_at',
         'updated_at',
     ];
-
+    public function contact(): HasOne
+    {
+        return $this->hasOne(Contact::class,'user_id');
+    }
 
 }

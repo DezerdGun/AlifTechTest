@@ -28,6 +28,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contacts');
+        Schema::table('contacts', function (Blueprint $table){
+            $table->dropForeign('contacts_user_id_foreign');
+        });
     }
 };
