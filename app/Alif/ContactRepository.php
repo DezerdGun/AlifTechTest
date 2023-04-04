@@ -3,43 +3,40 @@
 namespace App\Alif;
 
 use App\Alif\Interfaces\ContactRepositoryInterface;
-use App\Enums\UserStatusEnum;
-use App\Models\User;
+use App\Models\Contact;
+use DateTimeImmutable;
+use Illuminate\Support\Facades\Auth;
+
 
 class ContactRepository implements ContactRepositoryInterface
 {
+
     public function allCategories()
     {
-        return User::all();
+       return Contact::where('user_id', Auth::id())->latest()->paginate(20);
     }
     public function storeCategory($data)
     {
-        $user = User::create($data);
-        $user->status = UserStatusEnum::Status;
-        $user->email_verified_at = ''; // change to hardcode later after testing
-        $user->remember_token = ''; // change to hardcode later after testing
-        return $user;
+        return Contact::create($data);
+
     }
     public function findCategory($id)
     {
-        return User::find($id);
+        return Contact::find($id);
     }
     public function updateCategory($data, $id)
     {
-        $user = User::where('id', $id)->first();
-        $user->username= $data['username'];
-        $user->surname = $data['surname'];
-        $user->lastname = $data['lastname'];
-        $user->email = $data['email'];
-        $user->number = $data['number'];
-        $user->address = $data['address'];
-        $user->password = $data['password'];
-        $user->save();
+        $time = new DateTimeImmutable();
+        $contact = Contact::where('id', $id)->first();
+        $contact->email = $data['email'];
+        $contact->number = $data['number'];
+        $contact->address = $data['address'];
+        $contact->updated_at = $time;
+        $contact->save();
     }
     public function destroyCategory($id)
     {
-        return User::destroy($id);
+        return Contact::destroy($id);
 
     }
-
 }

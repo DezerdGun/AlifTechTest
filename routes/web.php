@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
-use App\Models\User;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +19,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/search', 'ContactController@search')->name('search.search');
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::resource("/user", UserController::class);
     Route::resource("/contact", ContactController::class);
-//    Route::get("/contact", 'ContactController@index')->name('contact.index');
-//    Route::get("/contact/edit", 'ContactController@index')->name('contact.edit');
-//    Route::get("/contact/destroy", 'ContactController@index')->name('contact.destroy');
-//    Route::get("/contact/create", 'ContactController@index')->name('contact.create');
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/register', 'RegisterController@show')->name('register.show');
         Route::post('/register', 'RegisterController@register')->name('register.perform');

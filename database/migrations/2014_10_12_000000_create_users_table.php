@@ -17,18 +17,12 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('surname')->unique();
             $table->string('lastname')->unique();
-            $table->string('email')->unique();
-            $table->integer('number')->unique();
             $table->date('date_of_birth');
-            $table->string('address');
-            $table->integer('status')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
         });
-
 
     }
 

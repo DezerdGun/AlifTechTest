@@ -14,13 +14,6 @@
                 <span class="text-danger text-left">{{ $errors->first('surname') }}</span>
             @endif
         </div>
-        <div class="form-group form-floating mb-3">
-            <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="name@example.com" required="required" autofocus>
-            <label for="floatingEmail">Email address</label>
-            @if ($errors->has('email'))
-                <span class="text-danger text-left">{{ $errors->first('email') }}</span>
-            @endif
-        </div>
 
         <div class="form-group form-floating mb-3">
             <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
@@ -35,22 +28,6 @@
             <label for="floatingName">Lastname</label>
             @if ($errors->has('lastname'))
                 <span class="text-danger text-left">{{ $errors->first('lastname') }}</span>
-            @endif
-        </div>
-
-        <div class="form-group form-floating mb-3">
-            <input type="text" class="form-control" name="number" value="{{ old('number') }}" placeholder="number" required="required" autofocus>
-            <label for="floatingName">number</label>
-            @if ($errors->has('number'))
-                <span class="text-danger text-left">{{ $errors->first('number') }}</span>
-            @endif
-        </div>
-
-        <div class="form-group form-floating mb-3">
-            <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="address" required="required" autofocus>
-            <label for="floatingName">address</label>
-            @if ($errors->has('address'))
-                <span class="text-danger text-left">{{ $errors->first('address') }}</span>
             @endif
         </div>
         <div class="form-group form-floating mb-3">

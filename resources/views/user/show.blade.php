@@ -4,13 +4,10 @@
     <div class="card-body">
 
         <div class="card-body">
-           <p  class="card-text">{{$contact->id}}</p>
-            <p class="card-text">{{$contact->username}},{{$contact->surname}},{{$contact->lastname}}</p>
-            <p class="card-text">{{$contact->email}} </p>
-           <p class="card-text"> {{$contact->number}}</p>
-           <p class="card-text">{{$contact->address}}</p>
-           <p class="card-text"> {{$contact->created_at}}</p>
-           <p class="card-text">  {{$contact->updated_at}}</p>
+           <p  class="card-text">{{$user->id}}</p>
+            <p class="card-text">{{$user->username}},{{$user->surname}},{{$user->lastname}}</p>
+           <p class="card-text"> {{$user->created_at}}</p>
+           <p class="card-text">  {{$user->updated_at}}</p>
         </div>
         </hr>
 

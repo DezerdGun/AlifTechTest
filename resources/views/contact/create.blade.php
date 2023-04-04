@@ -14,81 +14,45 @@
     @csrf
     <table  id="customers">
         <tr>
-            <th>Username</th>
-            <th>Surname</th>
-            <th>Lastname</th>
-            <th>email</th>
-            <th>TelNumber</th>
+
+            <th>Email</th>
+            <th>Telephone</th>
             <th>Address</th>
-            <th>Birthday</th>
-            <th>Password</th>
             <th>Added</th>
 
         </tr>
         <tr>
-            <td>
-                <input   type="text" name="username"
-                       class="block w-full @error('username') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Milter"  />
-                @error('username')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="surname"
-                       class="block w-full @error('surname ') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Vaxo" />
-                @error('surname')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
 
+                <input   type="hidden" name="user_id"
+                         class="block w-full @error('user_id') border-red-500 @enderror mt-1 rounded-md"
+                         placeholder="Milter" value="{{Auth::user()->id}}" />
+                @error('user_id')
+                <div>{{ $message }}</div>
+                @enderror
 
             <td>
-                <input type="text" name="lastname"
-                       class="block w-full @error('lastname') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Baxa" />
-                @error('lastname ')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="email"
-                       class="block w-full @error('email ') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="alif@gmail.com"  />
+                <input   type="text" name="email"
+                       class="block w-full @error('email') border-red-500 @enderror mt-1 rounded-md"
+                       placeholder="Milter@gmail.com"  />
                 @error('email')
                 <div>{{ $message }}</div>
                 @enderror
             </td>
             <td>
                 <input type="text" name="number"
-                       class="block w-full @error('number ') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="998999888770"  />
+                       class="block w-full @error('number') border-red-500 @enderror mt-1 rounded-md"
+                       placeholder="99899" />
                 @error('number')
                 <div>{{ $message }}</div>
                 @enderror
             </td>
+
+
             <td>
                 <input type="text" name="address"
                        class="block w-full @error('address') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Tashkent city" />
-                @error('address')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="date_of_birth"
-                       class="block w-full @error('date_of_birth') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="1998-01-01" value="" />
-                @error('date_of_birth')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="password"
-                       class="block w-full @error('password') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="password" />
-                @error('password')
+                       placeholder="tashkent city" />
+                @error('address ')
                 <div>{{ $message }}</div>
                 @enderror
             </td>

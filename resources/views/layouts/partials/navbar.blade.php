@@ -4,10 +4,12 @@
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
             </a>
-
+            @auth
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{{ route('contact.index') }}" class="nav-link px-2 text-white">ContactLists</a></li>
-                <li><a href="{{ route('contact.create') }}" class="nav-link px-2 text-white">Create</a></li>
+                <li><a href="{{ route('contact.index')}}" class="nav-link px-2 text-white">{{auth()->user()->getAttributeValue('username')}} Contacts</a></li>
+                <li><a href="{{ route('user.index')}}" class="nav-link px-2 text-white">{{auth()->user()->getAttributeValue('username')}} All Accaunts Info</a></li>
+                <li><a href="{{ route('user.create') }}" class="nav-link px-2 text-white">User Create</a></li>
+                <li><a href="{{ route('contact.create') }}" class="nav-link px-2 text-white">Contact Create</a></li>
             </ul>
 
             <form action="{{ route('search.search') }}" method="GET"
@@ -20,10 +22,10 @@
                 </table>
 
             </form>
-            @auth
+
 
                 <div class="text-end">
-                    <a  class="btn btn-outline-light me-2">{{auth()->user()->getAttributeValue('surname')}}</a>
+                    <a  class="btn btn-outline-light me-2">{{auth()->user()->getAttributeValue('username')}}</a>
                 </div>
                 <div class="text-end">
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
