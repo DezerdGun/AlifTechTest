@@ -1,87 +1,48 @@
-@extends('layouts.app-master')
+@extends('layouts.auth-master')
+
 @section('content')
-    @auth
-<x-slot name="header">
-    <h2 class="text-xl font-semibold leading-tight text-gray-800">
-        {{ __('Category Create') }}
-    </h2>
-</x-slot>
-<div class="mt-4 mb-4">
+    <form method="post" action="{{ route('register.perform') }}">
 
-</div>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <img class="mb-4" src="{!! url('images/bootstrap-logo.svg') !!}" alt="" width="72" height="57">
 
-<form method="POST" action="{{ route('user.store') }}">
-    @csrf
-    <table  id="customers">
-        <tr>
-            <th>Username</th>
-            <th>Surname</th>
-            <th>Lastname</th>
-            <th>Date</th>
-            <th>Password</th>
-            <th>Added</th>
-
-        </tr>
-        <tr>
-            <td>
-                <input   type="text" name="username"
-                       class="block w-full @error('username') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Milter"  />
-                @error('username')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="surname"
-                       class="block w-full @error('surname ') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Vaxo" />
-                @error('surname')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
+        <h1 class="h3 mb-3 fw-normal">Register</h1>
 
 
-            <td>
-                <input type="text" name="lastname"
-                       class="block w-full @error('lastname') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Baxa" />
-                @error('lastname ')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="date_of_birth"
-                       class="block w-full @error('date_of_birth') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="1998-01-01" value="" />
-                @error('date_of_birth')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <input type="text" name="password"
-                       class="block w-full @error('password') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="password" />
-                @error('password')
-                <div>{{ $message }}</div>
-                @enderror
-            </td>
-            <td>
-                <button type="submit" class="btn btn-success me-2">Create</button>
-            </td>
-        </tr>
-    </table>
-</form>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-    @endauth
-@guest
-    <h1>Please Sign-up and ReadMe file or ask from Alif</h1>
-@endguest
+        <div class="form-group form-floating mb-3">
+            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
+            <label for="floatingName">Username</label>
+            @if ($errors->has('username'))
+                <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group form-floating mb-3">
+            <input type="email" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}" placeholder="2000/11/11" required="required" autofocus>
+            <label >Birthday</label>
+            @if ($errors->has('date_of_birth'))
+                <span class="text-danger text-left">{{ $errors->first('date_of_birth') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group form-floating mb-3">
+            <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
+            <label for="floatingPassword">Password</label>
+            @if ($errors->has('password'))
+                <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group form-floating mb-3">
+            <input type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Confirm Password" required="required">
+            <label for="floatingConfirmPassword">Confirm Password</label>
+            @if ($errors->has('password_confirmation'))
+                <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
+            @endif
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+
+        @include('layouts.partials.copy')
+    </form>
 @endsection

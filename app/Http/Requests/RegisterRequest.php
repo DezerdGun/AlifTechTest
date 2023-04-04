@@ -22,13 +22,19 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'surname' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email',
+//            'surname' => 'required',
+//            'email' => 'required|email:rfc,dns|unique:users,email',
+//            'username' => 'required|unique:users,username',
+//            'lastname' => 'required|unique:users,lastname',
+//            'address' => 'required',
+//            'number' => 'required|min:3',
+//            'status' => ['nullable', 'integer', 'max:1'],
+//            'password' => 'required|min:8',
+//            'password_confirmation' => 'required|same:password'
             'username' => 'required|unique:users,username',
+            'surname' => 'required|unique:users,surname',
             'lastname' => 'required|unique:users,lastname',
-            'address' => 'required',
-            'number' => 'required|min:3',
-            'status' => ['nullable', 'integer', 'max:1'],
+            'date_of_birth' => 'required',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password'
         ];
@@ -37,12 +43,10 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'username.required' => 'Email is required!',
+            'username.required' => 'Username is required!',
             'surname.required' => 'surname is required!',
             'lastname.required' => 'Password is required!',
-            'address.required' => ['nullable', 'string', 'max:255'],
-            'number.required' => ['nullable', 'integer', 'max:32'],
-            'status' => ['nullable', 'integer', 'max:1'],
+            'date_of_birth.required' => 'date_of_birth is required!',
             'password.required' => 'required|min:8',
         ];
     }

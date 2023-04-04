@@ -22,18 +22,18 @@
 
         </tr>
         <tr>
-
+            <td>
                 <input   type="hidden" name="user_id"
                          class="block w-full @error('user_id') border-red-500 @enderror mt-1 rounded-md"
                          placeholder="Milter" value="{{Auth::user()->id}}" />
                 @error('user_id')
                 <div>{{ $message }}</div>
                 @enderror
-
+            </td>
             <td>
                 <input   type="text" name="email"
                        class="block w-full @error('email') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="Milter@gmail.com"  />
+                       placeholder="Milter"  />
                 @error('email')
                 <div>{{ $message }}</div>
                 @enderror
@@ -41,7 +41,7 @@
             <td>
                 <input type="text" name="number"
                        class="block w-full @error('number') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="99899" />
+                       placeholder="Vaxo" />
                 @error('number')
                 <div>{{ $message }}</div>
                 @enderror
@@ -51,7 +51,7 @@
             <td>
                 <input type="text" name="address"
                        class="block w-full @error('address') border-red-500 @enderror mt-1 rounded-md"
-                       placeholder="tashkent city" />
+                       placeholder="Baxa" />
                 @error('address ')
                 <div>{{ $message }}</div>
                 @enderror

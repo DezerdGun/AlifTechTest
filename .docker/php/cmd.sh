@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 40
+sleep 35
 composer install
 php artisan migrate --force
 php artisan migrate:refresh
