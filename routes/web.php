@@ -19,6 +19,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/search', 'ContactController@search')->name('search.search');
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/search', 'UserController@search')->name('search.search');
     Route::resource("/user", UserController::class);
     Route::resource("/contact", ContactController::class);
     Route::group(['middleware' => ['guest']], function () {

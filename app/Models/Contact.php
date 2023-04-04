@@ -18,9 +18,5 @@ class Contact extends Model
         'updated_at',
     ];
 
-    public function posts(): HasMany
-    {
-        return $this->hasMany(Contact::class);
-        //Or: return $this->hasMany(Post::class, 'foreign_key');
-    }
+
 }

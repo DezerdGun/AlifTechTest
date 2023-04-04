@@ -5,8 +5,8 @@
         <tr>
             <th>#</th>
             <th>Names</th>
-            <th>email</th>
-            <th>Number</th>
+            <th>Email</th>
+            <th>Phone</th>
             <th>Address</th>
             <th>Created_at</th>
             <th>Updated_at</th>
@@ -17,10 +17,10 @@
             @foreach ($posts as $post)
             <tr>
                 <td>  {{$post->id}}</td>
-                <td>{{$post->username}},{{$post->surname}},{{$post->lastname}}</td>
-                <td> {{$post->email}}</td>
-                <td> {{$post->number}}</td>
-                <td> {{$post->address}}</td>
+                <td>{{$post->username}} {{$post->surname}} {{$post->lastname}}</td>
+                <td>{{$post->email}}</td>
+                <td>{{$post->number}}</td>
+                <td>{{$post->address}}</td>
                 <td> {{$post->created_at}}</td>
                 <td> {{$post->updated_at}}</td>
                 <td> <a href="{{ route('contact.edit',$post->id) }}" class="btn btn-primary">Edit</a></td>

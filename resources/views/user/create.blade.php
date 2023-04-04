@@ -16,9 +16,23 @@
                 <span class="text-danger text-left">{{ $errors->first('username') }}</span>
             @endif
         </div>
+        <div class="form-group form-floating mb-3">
+            <input type="text" class="form-control" name="surname" value="{{ old('surname') }}" placeholder="Surname" required="required" autofocus>
+            <label for="floatingName">Surname</label>
+            @if ($errors->has('surname'))
+                <span class="text-danger text-left">{{ $errors->first('surname') }}</span>
+            @endif
+        </div>
+        <div class="form-group form-floating mb-3">
+            <input type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" placeholder="Lastname" required="required" autofocus>
+            <label for="floatingName">Lastname</label>
+            @if ($errors->has('lastname'))
+                <span class="text-danger text-left">{{ $errors->first('lastname') }}</span>
+            @endif
+        </div>
 
         <div class="form-group form-floating mb-3">
-            <input type="email" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}" placeholder="2000/11/11" required="required" autofocus>
+            <input type="date" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}" placeholder="2000/11/11" required="required" autofocus>
             <label >Birthday</label>
             @if ($errors->has('date_of_birth'))
                 <span class="text-danger text-left">{{ $errors->first('date_of_birth') }}</span>

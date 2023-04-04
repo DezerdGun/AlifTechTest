@@ -22,14 +22,14 @@
 
         </tr>
         <tr>
-            <td>
+
                 <input   type="hidden" name="user_id"
                          class="block w-full @error('user_id') border-red-500 @enderror mt-1 rounded-md"
                          placeholder="Milter" value="{{Auth::user()->id}}" />
                 @error('user_id')
                 <div>{{ $message }}</div>
                 @enderror
-            </td>
+
             <td>
                 <input   type="text" name="email"
                        class="block w-full @error('email') border-red-500 @enderror mt-1 rounded-md"

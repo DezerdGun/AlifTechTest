@@ -1,6 +1,6 @@
 @extends('layouts.auth-master')
 @section('content')
-    <form method="post" action="{{ route('user.store') }}">
+    <form method="post" action="{{ route('login.perform') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <img class="mb-4" src="{!! url('images/bootstrap-logo.svg') !!}" alt="" width="72" height="57">

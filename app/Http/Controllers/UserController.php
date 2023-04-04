@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Alif\ContactRepository;
 use App\Alif\UserRepository;
 use App\Enums\UserStatusEnum;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -77,12 +78,14 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
-
         $search = $request->input('search');
-        $posts = User::query()
+        $username = User::query()
             ->where('username', 'LIKE', "%{$search}%")
-            ->orWhere('email', 'LIKE', "%{$search}%")
             ->get();
+        $email = Contact::query()
+            ->where('email', 'LIKE', "%{$search}%")
+            ->get();
+        $posts = $username->merge($email);
         return view('search.search', compact('posts'));
     }
 
